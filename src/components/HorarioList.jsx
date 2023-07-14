@@ -26,7 +26,7 @@ function HorarioList(props) {
                 <div key={crypto.randomUUID} style={{border: '1px solid black', marginBottom:'20px'}}>
                     <div>{dayName[item.inicioDay]} {item.inicioDD} {item.pedidosTot}</div>
                     Inicio:{item.inicio} fin: {item.fin} <br />
-                    pedidos: {item.pedidos} => {item.pedidosCount}
+                    pedidos: {item.pedidos} = {item.pedidosCount}
                     {item.inicio2 && <div>inicio2: {item.inicio2} fin2: {item.fin2} pedidos: {item.pedidosCount2}</div>}
                 </div>
                )}
