@@ -8,7 +8,7 @@ function HorarioListItem({item}){
             <div>
                 <div>Inicio:{item.inicio} fin: {item.fin} </div>
                 <div>pedidos: {item.pedidos} </div>
-                <div>{item.pedidosCount} en {item.diffH}:{item.diffM}</div>
+                <div>{item.pedidosCount} en {item.diffH != "NaN" ? item.diffh : "--"}:{item.diffM}</div>
             </div>
             {item.inicio2 && <div>
                 <div>Inicio:{item.inicio2} fin: {item.fin2} </div>
