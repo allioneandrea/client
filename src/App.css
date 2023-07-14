@@ -8,19 +8,32 @@
 
 
 .itemHorario {
-  background: #313131;
+  background: #394f4b;
   width: 99%;
-  margin: 5px auto;
+  margin: 5px auto 10px auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.itemHorario.open {
+  margin-bottom: 40px;
 }
 .itemHorario .horarioItemBody{
-  display: none;
-  transition: .3s;
+  height: 0;
+  overflow: hidden;
+  transition: .6s;
 }
 .itemHorario.open .horarioItemBody{
-  display: block;
-  transition: .3s;
+  height: auto;
+  transition: .6s;
 }
 .itemHeading {
   background: #516e69;
-  padding: 10px 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.itemHorario.open .itemHeading{
+  border-bottom: 1px solid #2E2E2E;
 }

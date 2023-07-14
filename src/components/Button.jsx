@@ -12,7 +12,8 @@ function Button({horario, updateHorario, insertHorario}){
             if(!item.fin) tmpAbierto = item
         })
         setAbierto(tmpAbierto)
-    })
+
+    }, [horario])
 
     function handleClick(){
         if(abierto){
@@ -25,8 +26,8 @@ function Button({horario, updateHorario, insertHorario}){
     }
 
     return(
-        <div onClick={handleClick} className="buttonStSt">
-            <h1>{abierto ? 'Stop' : 'Start'}</h1>
+        <div onClick={handleClick} className={"buttonStSt " + (abierto ? 'started' : '')}>
+            <h2>{abierto ? 'Stop' : 'Start'}</h2>
         </div>
     )
 }

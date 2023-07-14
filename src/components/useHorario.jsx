@@ -23,7 +23,6 @@ function useHorario(){
             const diffH = parseInt(fin.diff(inicio, "hours"))
             const diffM = fin.diff(inicio,'minutes')%60
 
-            console.log(mont, horas)
             if(inicioMM == mont) {
                 horas += diffH
                 minutes += diffM

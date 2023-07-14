@@ -6,7 +6,9 @@ import useHorario from "./useHorario"
 const dayName = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 const mothName = ['','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
-
+function addZero(num){
+    return num < 10 ? `0${num}` : num
+}
 function HorarioList(props) {
 
     const horario = useHorario()
@@ -30,7 +32,11 @@ function HorarioList(props) {
                     <div>Mes {mothName[item.month]} {item.totHMonth.horas}:{item.totHMonth.minutes}H {(item.totHMonth.horas * 7.9).toFixed(2)}€</div> : 
                     
                     <div key={crypto.randomUUID} className="itemHorario" onClick={(e) => toggleOpen(e)}>
-                        <div className="itemHeading"><small>{dayName[item.inicioDay]} {item.inicioDD}</small> {item.pedidosTot}<small>pedidos en</small>{item.diffTotH ? item.diffTotH: item.diffH}:{item.diffTotM ? item.diffTotM: item.diffM}</div>
+                        <div className="itemHeading">
+                            <div><small>{dayName[item.inicioDay]} {item.inicioDD}</small></div>
+                           <div> {item.pedidosTot}<small>pedidos</small></div>
+                           <div><small> en </small>{item.diffTotH ? addZero(item.diffTotH): addZero(item.diffH)}:{addZero(item.diffTotM) ? addZero(item.diffTotM): addZero(item.diffM)}H</div>
+                        </div>
                         <HorarioListItem item={item} />
                     </div>}
                     
