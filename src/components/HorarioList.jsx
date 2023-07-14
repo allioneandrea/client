@@ -12,9 +12,13 @@ function addZero(num){
 function HorarioList(props) {
 
     const horario = useHorario()
+    const [opened, setOpened] = useState(false)
 
     useEffect(() => {
         horario.setData(props.horario)
+        props.horario.map((item) => {
+            !item.fin ? setOpened(item) : setOpened(false)
+        })
     },[props])
 
     function toggleOpen(e) {
@@ -31,7 +35,7 @@ function HorarioList(props) {
                     {item.month ? 
                     <div>Mes {mothName[item.month]} {item.totHMonth.horas}:{item.totHMonth.minutes}H {(item.totHMonth.horas * 7.9).toFixed(2)}€</div> : 
                     
-                    <div key={crypto.randomUUID} className="itemHorario" onClick={(e) => toggleOpen(e)}>
+                    <div key={crypto.randomUUID} className={"itemHorario " + (opened && (opened.id == item.id || opened.id == item.id2)? 'open' : '')} onClick={(e) => toggleOpen(e)}>
                         <div className="itemHeading">
                             <div><small>{dayName[item.inicioDay]} {item.inicioDD}</small></div>
                            <div> {item.pedidosTot}<small>pedidos</small></div>

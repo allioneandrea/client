@@ -27,6 +27,7 @@
   transition: .6s;
 }
 .itemHeading {
+  display: block;
   background: #516e69;
   height: 40px;
   display: flex;

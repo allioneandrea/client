@@ -58,6 +58,7 @@ function useHorario(){
                 if(tmpItem.inicio ) tmpData.push(tmpItem)
                 if(tmpItem.inicioMM != inicioMonth) tmpData.push({month: inicioMonth, totHMonth: calculeMonth(inicioMonth)})
                 tmpItem = {
+                    id: item.id,
                     inicio: inicio.format("HH:mm"),
                     fin: fin.format("HH:mm"),
                     inicioDD: parseInt(inicio.format('DD')),
@@ -83,6 +84,7 @@ function useHorario(){
                 
                 tmpItem ={
                     ... tmpItem,
+                    id2: item.id,
                     inicio2: inicio.format("HH:mm"),
                     fin2: fin.format("HH:mm"),
                     pedidos2: item.pedidos,
