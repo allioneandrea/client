@@ -27,7 +27,7 @@ function HorarioList(props) {
                {newHorario.map((item) => 
                 <>
                     {item.month ? 
-                    <div>Mes {mothName[item.month]}</div> : 
+                    <div>Mes {mothName[item.month]} {item.totHMonth.horas}:{item.totHMonth.minutes}H {(item.totHMonth.horas * 7.9).toFixed(2)}€</div> : 
                     
                     <div key={crypto.randomUUID} className="itemHorario" onClick={(e) => toggleOpen(e)}>
                         <div className="itemHeading"><small>{dayName[item.inicioDay]} {item.inicioDD}</small> {item.pedidosTot}<small>pedidos en</small>{item.diffTotH ? item.diffTotH: item.diffH}:{item.diffTotM ? item.diffTotM: item.diffM}</div>

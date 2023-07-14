@@ -13,6 +13,27 @@ function useHorario(){
         console.log('open', openData)
     },[openData])
 
+    const  calculeMonth = (mont) => {
+        let horas = 0
+        let minutes = 0
+        data.map((item) => {
+            const inicio = moment(item.inicio, MOMENT_PATTERN)
+            const inicioMM = parseInt(inicio.format('MM'))
+            const fin = moment(item.fin, MOMENT_PATTERN)
+            const diffH = parseInt(fin.diff(inicio, "hours"))
+            const diffM = fin.diff(inicio,'minutes')%60
+
+            console.log(mont, horas)
+            if(inicioMM == mont) {
+                horas += diffH
+                minutes += diffM
+            }
+        })
+        horas += parseInt(minutes / 60)
+        minutes = minutes%60
+        return {horas, minutes}
+    }
+
     useEffect(() => {
         let tmpOpenData = false
         let tmpData = []
@@ -36,7 +57,7 @@ function useHorario(){
             if(tmpItem.inicioDD != parseInt(inicio.format('DD'))){
                 const inicioMonth = parseInt(inicio.format("MM"))
                 if(tmpItem.inicio ) tmpData.push(tmpItem)
-                if(tmpItem.inicioMM != inicioMonth) tmpData.push({month: inicioMonth})
+                if(tmpItem.inicioMM != inicioMonth) tmpData.push({month: inicioMonth, totHMonth: calculeMonth(inicioMonth)})
                 tmpItem = {
                     inicio: inicio.format("HH:mm"),
                     fin: fin.format("HH:mm"),
