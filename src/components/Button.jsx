@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import moment from 'moment'
+import './Button.css'
 
 function Button({horario, updateHorario, insertHorario}){
 
@@ -24,7 +25,7 @@ function Button({horario, updateHorario, insertHorario}){
     }
 
     return(
-        <div onClick={handleClick}>
+        <div onClick={handleClick} className="buttonStSt">
             {abierto ? 'Stop' : 'Start'}
         </div>
     )
