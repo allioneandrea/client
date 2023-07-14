@@ -41,8 +41,8 @@ function useHorario(){
         data.map((item) => {
             const inicio = moment(item.inicio, MOMENT_PATTERN)
             const fin = moment(item.fin, MOMENT_PATTERN)
-            const diffH = parseInt(fin.diff(inicio, 'hours'))
-            const diffM = parseInt(fin.diff(inicio, 'minutes'))%60
+            const diffH = item.fin ? parseInt(fin.diff(inicio, 'hours')) :0
+            const diffM = item.fin ? parseInt(fin.diff(inicio, 'minutes'))%60 : 0
             let pedidosCount = 0
             let pedidosArray = item.pedidos.split("")
 
