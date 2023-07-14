@@ -26,7 +26,7 @@ function Button({horario, updateHorario, insertHorario}){
 
     return(
         <div onClick={handleClick} className="buttonStSt">
-            {abierto ? 'Stop' : 'Start'}
+            <h1>{abierto ? 'Stop' : 'Start'}</h1>
         </div>
     )
 }

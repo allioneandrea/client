@@ -1,0 +1,13 @@
+.btnsAddPedidos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    
+}
+.btnsAddPedidos > button {
+    background-color: #3e3e3e;
+    color: #fff;
+
+    
+}
