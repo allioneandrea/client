@@ -6,8 +6,9 @@
     
 }
 .btnsAddPedidos > button {
-    background-color: #3e3e3e;
+    background-color: #516e69;
     color: #fff;
+    box-shadow: 3px 6px 9px 3px #333;
 
     
 }

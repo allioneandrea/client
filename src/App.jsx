@@ -38,11 +38,11 @@ function App() {
 
 
   return (
-    <>
-    <Button horario={horario} updateHorario={updateHorario} insertHorario={insertHorario} />
-    <ButtonsPedidos horario={horario} updateHorario={updateHorario} />
+    < div style={{width: '100%'}}>
+      <Button horario={horario} updateHorario={updateHorario} insertHorario={insertHorario} />
+      <ButtonsPedidos horario={horario} updateHorario={updateHorario} />
       <HorarioList horario={horario} />
-    </>
+    </div>
   )
 }
 

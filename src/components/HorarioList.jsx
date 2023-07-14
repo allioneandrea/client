@@ -4,6 +4,7 @@ import moment from 'moment'
 import useHorario from "./useHorario"
 
 const dayName = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+const mothName = ['','Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 
 
 function HorarioList(props) {
@@ -14,21 +15,26 @@ function HorarioList(props) {
         horario.setData(props.horario)
     },[props])
 
+    function toggleOpen(e) {
+        e.currentTarget.classList.toggle('open')
+    }
 
     function RenderHorario(){
         if(horario.horario.length > 0) {
             let newHorario = [...horario.horario].reverse()
-            console.log('horario', horario.horario)
-            console.log('new', newHorario)
             return(
                <>
                {newHorario.map((item) => 
-                <div key={crypto.randomUUID} style={{border: '1px solid black', marginBottom:'20px'}}>
-                    <div>{dayName[item.inicioDay]} {item.inicioDD} {item.pedidosTot}</div>
-                    Inicio:{item.inicio} fin: {item.fin} <br />
-                    pedidos: {item.pedidos} = {item.pedidosCount}
-                    {item.inicio2 && <div>inicio2: {item.inicio2} fin2: {item.fin2} pedidos: {item.pedidosCount2}</div>}
-                </div>
+                <>
+                    {item.month ? 
+                    <div>Mes {mothName[item.month]}</div> : 
+                    
+                    <div key={crypto.randomUUID} className="itemHorario" onClick={(e) => toggleOpen(e)}>
+                        <div className="itemHeading"><small>{dayName[item.inicioDay]} {item.inicioDD}</small> {item.pedidosTot}<small>pedidos en</small>{item.diffTotH ? item.diffTotH: item.diffH}:{item.diffTotM ? item.diffTotM: item.diffM}</div>
+                        <HorarioListItem item={item} />
+                    </div>}
+                    
+                </>
                )}
                </> 
             )
